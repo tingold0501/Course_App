@@ -1,6 +1,5 @@
 import React from 'react'
 import { ImageBackground, Text, View } from 'react-native'
-import Carousel from 'react-native-snap-carousel';
 export default function OnboardOne() {
     return (
         <View style={{ flex: 1 }}>
