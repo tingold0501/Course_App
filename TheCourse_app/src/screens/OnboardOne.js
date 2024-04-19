@@ -6,14 +6,20 @@ const OnboardOne = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
-    fetch("http://localhost/api/getAllDataUser")
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => console.error('Error fetching user data:', error));
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost/api/getAllActiveUser'); // Thay thế URL này bằng URL thực tế của API Laravel của bạn
+        setData(response.data);
+        setLoading(false);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
